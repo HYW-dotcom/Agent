@@ -1,0 +1,41 @@
+server:
+  logger:
+    #    file: logs/app.log
+    level: DEBUG # 日志级别: CRITICAL, ERROR, WARNING, INFO, DEBUG
+
+nacos:
+  server-addr: 192.168.150.101:8848 # nacos注册中心
+  username: nacos
+  password: nacos
+  config:
+    namespace: public
+    group: DEFAULT_GROUP
+  discovery:
+    name: agent-center
+    namespace: f923fb34-cb0a-4c06-8fca-ad61ea61a3f0
+    ip: 192.168.150.1
+
+ai:
+  openai:
+    model: qwen3-max
+    api-key: ${ALIYUN_API_KEY}
+    base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    temperature: 0.8
+    timeout: 30
+
+prompt:
+  recommend:
+    chat:
+      data-id: recommend-agent-system-message.txt
+  buy:
+    chat:
+      data-id: buy-agent-system-message.txt
+  consult:
+    chat:
+      data-id: consult-agent-system-message.txt
+  knowledge:
+    chat:
+      data-id: knowledge-agent-system-message.txt
+  unknown:
+    chat:
+      data-id: unknown-agent-system-message.txt
